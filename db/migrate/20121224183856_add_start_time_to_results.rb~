@@ -1,0 +1,4 @@
+class AddStartTimeToResults < ActiveRecord::Migration
+  def change
+  end
+end

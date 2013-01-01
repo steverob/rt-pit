@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>rTester</title>
+
+  <%= javascript_include_tag "application" %>
+
+
+  <%= csrf_meta_tags %>
+  <style type="text/css" media="screen">
+    b.heading
+    {
+      font-size:120%;
+    }
+    table
+    {
+    border-collapse:collapse;
+    }
+    .stats
+    {
+      border: 0px;
+    }
+    table,th, td
+    {
+    border: 1px solid black;
+    padding: 5px 5px;
+    font-size: 14;
+    }
+     h3{
+      font-size: 17;
+    }
+  </style>
+    <style type="text/css" media="print">
+    table
+    {
+    border-collapse:collapse;
+    }
+    table,th, td
+    {
+    border: 1px solid black;
+    padding: 3px 3px;
+    font-size: 14;
+    }
+      .noPrint {
+          display: none;
+          }
+  </style>
+
+</head>
+<body>
+  <h1><%= @results[0].online_test.name %></h1>
+  <h3>Results</h3>
+<table class="table table-condensed table-striped table-nonfluid">
+  <thead>
+    <tr>
+      <th>Roll No.</th>
+      <th>Candidate Name</th>
+      <th><%= model_class.human_attribute_name(:score) %></th>
+      <th><%= model_class.human_attribute_name(:rank) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @results.each do |result| %>
+      <tr>
+        <td><%= result.candidate.roll_no %></td>
+        <td><%= result.candidate.name %></td>
+        <td><%= result.score %></td>
+        <td><%= result.rank %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br><br>
+<div class="noPrint">
+   <center><%= link_to "Back",online_test_path(@test_id) %>&nbsp;&nbsp;<a href="#" onClick=" window.print(); return false">Print this page</a></center></div>
+</body>
+</html>

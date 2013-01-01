@@ -1,0 +1,4 @@
+class AddOpenToOnlineTest < ActiveRecord::Migration
+  def change
+  end
+end

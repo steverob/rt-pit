@@ -1,0 +1,8 @@
+class Test < ActiveRecord::Base
+  attr_accessible :date_from, :date_to, :name, :no_of_questions, :timing
+  has_many :questions, :through=>:test_questions
+  has_many :results
+  has_many :test_questions
+
+
+end

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="row">
+  <div class="span12" id="#scrollbar1">
+    <%- rows=(@questions.length.to_f/3.to_f).ceil -%>
+    <%- qns=@questions.length-%>
+    <%-count=1-%>
+    <table class="table table-condensed">
+    <caption><strong>Questions Navigation</strong></caption>
+        <% @q_array.each do |row|%>
+          <tr>
+            <% row.each do |qn| %>
+              <td style="text-align: center;"><%= link_to qn,"#",:class=>"btn btn-inverse"%></td>
+            <%end%>
+          </tr>
+        <%end%>
+    </table>
+  </div>
+  <div>
+  <div class="row">
+
+  <div class="span12">
+
+  <%= @questions.keys[0] %>
+  <%= @questions.values[0][1] %>
+  <%=@questions %>
+  <%=@q_array%>
+
+  </div>
+  </div>
+</div>

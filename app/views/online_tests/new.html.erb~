@@ -1,0 +1,20 @@
+<script>
+$(function(){
+$("#jquery-tagbox-select").tagBox({
+        enableDropdown: true,
+        dropdownSource: function() {
+          return $("#jquery-tagbox-select-options");
+        }
+      });
+});
+</script>
+
+<div class="span10 offset1">
+
+<%- model_class = OnlineTest -%>
+<div class="page-header">
+  <h3><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                 :default => "New #{model_class.model_name.human}") %></h3>
+</div>
+<%= render :partial => 'form' %>
+</div>
